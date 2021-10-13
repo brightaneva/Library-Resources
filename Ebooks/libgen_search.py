@@ -33,6 +33,7 @@ class LibgenSearch():
         )
 
     def resolve_download_links(self, item):
+        # delete x frm e dic
         mirror_1 = item["Mirror_1"]
         page = requests.get(mirror_1)
         soup = BeautifulSoup(page.text, "html.parser")

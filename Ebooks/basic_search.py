@@ -1,11 +1,11 @@
 import json
 import time
-from .search_request import SearchRequest
-from .libgen_search import LibgenSearch
+from .search_request import *
+from .libgen_search import *
 from .helpers import store_book
 
 
-class BS():
+class Basic_Search():
     """Create an ordinary json of the Ebook """
 
     def book_title(self, title):
@@ -17,6 +17,7 @@ class BS():
         Returns:
             [json]: [data of the book]
         """
+        # download_link = LibgenSearch().resolve_download_links(data)
         return LibgenSearch().search_title(title)
 
     def author_name(self, name):
@@ -30,12 +31,11 @@ class BS():
         """
         return LibgenSearch().search_author(name)
 
-
-class Filter_BS():
+class filter_bs():
     """ customizing the filter 
     fuction in libgen api """
 
-    def book_title(self, title, filters, ex_mt=False):
+    def book_title(self, title, filters, ex_mt):
         """get library of books by specific matched
 
         Args:
@@ -46,24 +46,11 @@ class Filter_BS():
         Returns:
             [json]: [data of a specific book or books]
         """
-        lg_filter = LibgenSearch().search_title_filtered(
+        return LibgenSearch().search_title_filtered(
             title, filters, exact_match=ex_mt)
 
-        if ex_mt == 'True':
-            lg_filter = LibgenSearch().search_title_filtered(
-                title, filters, exact_match=True)
 
-        return lg_filter
-
-
-    def author_name(name, filters, ex_mt=False):
+    def author_name(name, filters, ex_mt):
         """same as above except name of th ebook is replaced with name of the author"""
-        # self.name 
-        lg_filter = LibgenSearch().search_author_filtered(
+        return LibgenSearch().search_author_filtered(
             name, filters, exact_match=ex_mt)
-
-        if ex_mt == 'True':
-            lg_filter = LibgenSearch().search_author_filtered(
-                name, filters, exact_match=True)
-
-        return lg_filter

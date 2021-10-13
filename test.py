@@ -1,18 +1,19 @@
-from Ebooks.basic_search import BS,Filter_BS
-from Ebooks.render_search import RS,Filter_RS
+from Ebooks.basic_search import Basic_Search
+from Ebooks.render_search import RS
 from Ebooks.helpers import store_book
 from Quote.quote_generator import  Quote_Generator
 import time
 
+start_time = time.time()
 name = "boy"
-x = RS().book_title(name)
+x = Basic_Search().book_title(name)
 store_book(x,name)
 
+print("--- %s seconds ---" % (time.time() - start_time))
 # x = ad.book_title("superman") 
 
-# start_time = time.time()
+
 # store_book(x,"random_quote")
 
-# print("--- %s seconds ---" % (time.time() - start_time))
 
 
