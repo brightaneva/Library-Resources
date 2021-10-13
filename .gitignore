@@ -1,0 +1,5 @@
+ebook_json/
+pycache/
+sshkeys
+sshkeys.pub
+
