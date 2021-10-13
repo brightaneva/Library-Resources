@@ -1,5 +1,5 @@
 ebook_json/
 pycache/
-sshkeys
-sshkeys.pub
+keys
+keys.pub
 
