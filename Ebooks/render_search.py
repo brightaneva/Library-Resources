@@ -1,9 +1,9 @@
 import json
 import time
-
-from libgen_api import LibgenSearch
-from get_cover_links import get_cover_link
-from helpers import render_bk
+from .search_request import SearchRequest
+from .libgen_search import LibgenSearch
+from .get_cover_links import get_cover_link
+from .helpers import render_bk
 
 
 class RS():

@@ -1,5 +1,7 @@
 ebook_json/
 pycache/
+Ebooks/_pycache
+_pycache_/
 keys
 keys.pub
-
+data

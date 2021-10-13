@@ -1,10 +1,10 @@
-from basic_search import BS,Filter_BS
-from render_search import RS,Filter_RS
-from helpers import store_book
-from quote_generator import Quote_Generator 
+from Ebooks.basic_search import BS,Filter_BS
+from Ebooks.render_search import RS,Filter_RS
+from Ebooks.helpers import store_book
+from Quote.quote_generator import  Quote_Generator
 import time
 
-name = "coke"
+name = "boy"
 x = RS().book_title(name)
 store_book(x,name)
 

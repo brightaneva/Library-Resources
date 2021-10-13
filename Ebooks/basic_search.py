@@ -1,7 +1,8 @@
 import json
 import time
-from libgen_api import LibgenSearch
-from helpers import store_book
+from .search_request import SearchRequest
+from .libgen_search import LibgenSearch
+from .helpers import store_book
 
 
 class BS():

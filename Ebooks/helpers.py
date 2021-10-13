@@ -1,12 +1,12 @@
 import json
-from get_cover_links import get_cover_link
-from libgen_api import LibgenSearch
+from Ebooks.get_cover_links import get_cover_link
+from Ebooks.libgen_search import LibgenSearch
 
 
 def store_book(dict, bk_name):
     """stores a dic in a json file."""
 
-    with open(f"ebook_json/{bk_name}.json", "w") as file:
+    with open(f"data/{bk_name}.json", "w") as file:
         json.dump(dict, file, indent=4)
         print("Finished Processing")
 
@@ -25,7 +25,7 @@ def render_bk(dict, bk_name):
 
         all_dict["dwn_link"] = dwn_link
         all_dict["Mirror_1"] = mirror_1
-        del all_dict["Edit"],all_dict["Mirror_2"],all_dict["Mirror_3"],all_dict["Mirror_4"]
+
         # del all_dict["Mirrow_2"]
         # Now del unwanted keys from dic
         # for keys in x:
