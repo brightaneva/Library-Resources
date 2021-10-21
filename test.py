@@ -5,8 +5,9 @@ from Quote.quote_generator import  Quote_Generator
 import time
 
 start_time = time.time()
-name = "boy"
-x = Basic_Search().book_title(name)
+name = "Goku-1"
+# x = Basic_Search().book_title(name)
+x = Quote_Generator().anime_quote_by("goku")
 store_book(x,name)
 
 print("--- %s seconds ---" % (time.time() - start_time))

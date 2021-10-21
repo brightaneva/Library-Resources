@@ -53,5 +53,5 @@ class Quote_Generator():
             [json]: [name of the anime character and quote and the anime he said it]
         """
         self.name = name
-        url = f"https://animechan.vercel.app/api/quotes/character?name={self.name}&?page=3"
+        url = f"https://animechan.vercel.app/api/quotes/character?name={self.name}&?page=5"
         return requests.get(url).json()
