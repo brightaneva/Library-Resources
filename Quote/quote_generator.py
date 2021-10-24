@@ -1,17 +1,17 @@
-from quote import quote
+from .crawler import quote
 import requests
-from requests.exceptions import RequestsWarning
+
 
 class Quote_Generator():
     """Generate some quotes of famous
     people and anime quote"""
 
 
-    def random_quote(self):
+    def random_quote():
         "fetches random quote from quotable api"
         return requests.get("https://api.quotable.io/random").json()
 
-    def quote_by(self,name):
+    def quote_by(name):
         """return quotes said in books
 
         Args:
@@ -20,16 +20,15 @@ class Quote_Generator():
         Returns:
             [json]: [data of the author,book and quote]
         """
-        self.name = name
-        return quote(self.name)
+        return quote(name)
 
-    def random_anime_quote(self):
+    def random_anime_quote():
         return requests.get("https://animechan.vercel.app/api/random").json()
     
-    def top_anime_quote(self):
+    def top_anime_quote():
         return requests.get("https://animechan.vercel.app/api/quotes").json()
     
-    def anime_quote_title(self,title):
+    def anime_quote_title(title):
         """quote in an anime 
 
         Args:
@@ -38,12 +37,10 @@ class Quote_Generator():
         Returns:
             [json]: [data of the anime and the quote in it]
         """
-
-        self.title = title
-        url = f"https://animechan.vercel.app/api/quotes/anime?title={self.title}"
+        url = f"https://animechan.vercel.app/api/quotes/anime?title={title}"
         return requests.get(url).json()
 
-    def anime_quote_by(self,name):
+    def anime_quote_by(name):
         """quote of an anime character
 
         Args:
@@ -52,6 +49,5 @@ class Quote_Generator():
         Returns:
             [json]: [name of the anime character and quote and the anime he said it]
         """
-        self.name = name
-        url = f"https://animechan.vercel.app/api/quotes/character?name={self.name}&?page=5"
+        url = f"https://animechan.vercel.app/api/quotes/character?name={name}&?page=5"
         return requests.get(url).json()

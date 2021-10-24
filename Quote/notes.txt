@@ -1,0 +1,15 @@
+To get quote from a particular person
+import quote from the crawler module
+and give the name of the person as parameter
+
+eg: from crawler import quote
+    x = quote_by("Elon Musk")
+
+the crawler module is used for only the quote_by fuc
+
+DO NOT TOUCH ANYTHING IN THE crawler module
+
+however quote_by fuc returns only 10 results
+to increase the results go to the crawler module
+and navigate to the "quote" fuction
+change the limit parameter to required number
