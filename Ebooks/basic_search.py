@@ -2,7 +2,7 @@ import json
 import time
 from .search_request import *
 from .libgen_search import *
-from .helpers import store_book
+from helpers import Helpers
 
 
 class Basic_Search():

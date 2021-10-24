@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 from .search_request import SearchRequest
 from .libgen_search import LibgenSearch
 from .get_cover_links import get_cover_link
-from .helpers import render_bk
+from .helper import render_bk
 
 
 class RS():

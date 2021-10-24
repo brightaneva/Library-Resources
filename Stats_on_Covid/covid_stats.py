@@ -11,7 +11,7 @@ headers = {
 }
 
 
-class Covid_19:
+class Covid_19():
     """Retrieve info on covid around the globe"""
 
     def all_coun_stats():
@@ -29,6 +29,7 @@ class Covid_19:
 
         return requests.request("GET", api_call, headers=headers).json()
 
+
     def stats_on_coun(country_name):
         """retrieve stats on specific coun"""
 
@@ -40,46 +41,25 @@ class Covid_19:
             "GET", api_call, headers=headers, params=querystring
         ).json()
 
-    def coun_afd():
-        """return all coun affected"""
+    def coun_affected():
+        """return all countries affected with covid-19"""
         api_call = "https://covid-193.p.rapidapi.com/countries"
         return requests.request("GET", api_call, headers=headers).json()
 
-    def history_coun(coun, date):
-        """History of covid in a period"""
+    def history_coun(country, date):
+        """History of covid in a country in a particular date"""
 
-        # returns stats on covid
-        # in a specific period
+        # coutry argument take in the name of the country
+        #date argument takes in the date in '2021-01-01' format
+
         api_call = "https://covid-193.p.rapidapi.com/history"
-        querystring = {"country": coun, "day": date}
+        querystring = {"country": country, "day": date}
 
         return requests.request(
             "GET", api_call, headers=headers, params=querystring
         ).json()
 
-    def store_book(data, bk_name):
-        """stores a dic in a json file."""
-
-        with open(f"data/{bk_name}.json", "w") as file:
-            json.dump(data, file, indent=4)
-            print("Finished Processing")
 
 
-# history on stats
-coun = "canada"
-
-fuc = Covid_19.history_coun(coun,"2021-01-01")
-Covid_19.store_book(fuc,f"history_on_{coun}")
 
 
-fuc = Covid_19.coun_afd()
-Covid_19.store_book(fuc,"all_country")
-# # print(response.text)
-
-# stat_coun
-fuc = Covid_19.stats_on_coun(coun)
-Covid_19.store_book(fuc,coun)
-
-
-fuc = Covid_19.all_coun_stats()
-Covid_19.store_book(fuc,"all_stats")

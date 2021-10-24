@@ -1,3 +1,0 @@
-This module should give info abt
-1.Global data
-2.specific country data
