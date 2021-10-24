@@ -1,4 +1,5 @@
 ebook_json/
+config.py
 __pycache__/
 Ebooks/_pycache
 _pycache_/
