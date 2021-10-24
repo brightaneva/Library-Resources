@@ -1,11 +1,14 @@
+#Please do not touch anything here
+
+
 from .search_request import SearchRequest
 import requests
 from bs4 import BeautifulSoup
 
-MIRROR_SOURCES = ["GET"]
+MIRROR_SOURCES = ["GET", "Cloudflare"]
 
 
-class LibgenSearch():
+class LibgenSearch:
     def search_title(self, query):
         search_request = SearchRequest(query, search_type="title")
         return search_request.aggregate_request_data()
@@ -33,12 +36,24 @@ class LibgenSearch():
         )
 
     def resolve_download_links(self, item):
-        # delete x frm e dic
-        mirror_1 = item["Mirror_1"]
-        page = requests.get(mirror_1)
-        soup = BeautifulSoup(page.text, "html.parser")
-        links = soup.find_all("a", string=MIRROR_SOURCES)
-        return {link.string: link["href"] for link in links}
+        for items in item:
+            mirror_1 = items["Mirror_1"]
+            page = requests.get(mirror_1)
+            soup = BeautifulSoup(page.text, "html.parser")
+            links = soup.find_all("a", string=MIRROR_SOURCES)
+            x = self.get_cover_link(mirror_1)
+            items["cover"] = x
+            items["Download_link"] = {link.string: link["href"] for link in links}
+            # items["Cover"] = f"http://library.lol{image['src']}"
+
+        return item
+    
+    def get_cover_link(self,url):
+        r = requests.get(url)
+        soup = BeautifulSoup(r.text, 'html.parser')
+        images = soup.find_all('img')
+        for image in images:
+            return f"http://library.lol{image['src']}"
 
 
 def filter_results(results, filters, exact_match):
@@ -50,22 +65,25 @@ def filter_results(results, filters, exact_match):
     exact_match defaults to TRUE - this is to maintain consistency with older versions of this library.
     """
 
-    filtered_list = []
-    if exact_match:
-        for result in results:
-            # check whether a candidate result matches the given filters
-            if filters.items() <= result.items():
-                filtered_list.append(result)
-
-    else:
-        filter_matches_result = False
-        for result in results:
-            for field, query in filters.items():
-                if query.casefold() in result[field].casefold():
-                    filter_matches_result = True
-                else:
-                    filter_matches_result = False
-                    break
-            if filter_matches_result:
-                filtered_list.append(result)
+    filtered_list = [result for result in results if exact_match]
+    filtered_list = [result for result in results if exact_match<=False]
     return filtered_list
+    # if exact_match:
+    #     for result in results:
+    #         # check whether a candidate result matches the given filters
+    #         if filters.items() <= result.items():
+    #             filtered_list.append(result)
+
+
+    # if exact_match <= False:
+    #     filter_matches_result = False
+    #     for result in results:
+    #         for field, query in filters.items():
+    #             if query.casefold() in result[field].casefold():
+    #                 filter_matches_result = True
+    #             else:
+    #                 filter_matches_result = False
+    #                 break
+    #         if filter_matches_result:
+    #             filtered_list.append(result)
+    # return filtered_list

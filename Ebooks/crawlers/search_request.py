@@ -34,6 +34,7 @@ class SearchRequest:
         for subheading in subheadings:
             subheading.decompose()
 
+
     def get_search_page(self):
         query_parsed = "%20".join(self.query.split(" "))
         if self.search_type.lower() == "title":
@@ -44,7 +45,8 @@ class SearchRequest:
             search_url = (
                 f"http://gen.lib.rus.ec/search.php?req={query_parsed}&column=author"
             )
-        return  requests.get(search_url)
+        return requests.get(search_url)
+
 
     def aggregate_request_data(self):
         search_page = self.get_search_page()
@@ -70,6 +72,5 @@ class SearchRequest:
                 1:
             ]  # Skip row 0 as it is the headings row
         ]
-
 
         return [dict(zip(self.col_names, row)) for row in raw_data]
