@@ -4,6 +4,6 @@ Ebooks/_pycache
 _pycache_/
 keys
 keys.pub
-.data
+data/
 Quote/__pycache__
 Quote/quote_generator.cpython-39.pyc
