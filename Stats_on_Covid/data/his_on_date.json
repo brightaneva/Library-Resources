@@ -1,0 +1,107 @@
+{
+    "get": "history",
+    "parameters": {
+        "country": "canada",
+        "day": "2020-12-01"
+    },
+    "errors": [],
+    "results": 4,
+    "response": [
+        {
+            "continent": "North-America",
+            "country": "Canada",
+            "population": 37879788,
+            "cases": {
+                "new": "+3175",
+                "active": 66274,
+                "critical": 492,
+                "recovered": 302859,
+                "1M_pop": "10066",
+                "total": 381314
+            },
+            "deaths": {
+                "new": "+51",
+                "1M_pop": "322",
+                "total": 12181
+            },
+            "tests": {
+                "1M_pop": "302949",
+                "total": 11475642
+            },
+            "day": "2020-12-01",
+            "time": "2020-12-01T19:45:12+00:00"
+        },
+        {
+            "continent": "North-America",
+            "country": "Canada",
+            "population": 37879788,
+            "cases": {
+                "new": "+1707",
+                "active": 66364,
+                "critical": 492,
+                "recovered": 301345,
+                "1M_pop": "10028",
+                "total": 379846
+            },
+            "deaths": {
+                "new": "+7",
+                "1M_pop": "320",
+                "total": 12137
+            },
+            "tests": {
+                "1M_pop": "302949",
+                "total": 11475642
+            },
+            "day": "2020-12-01",
+            "time": "2020-12-01T18:45:10+00:00"
+        },
+        {
+            "continent": "North-America",
+            "country": "Canada",
+            "population": 37879788,
+            "cases": {
+                "new": "+7861",
+                "active": 66037,
+                "critical": 492,
+                "recovered": 299972,
+                "1M_pop": "9983",
+                "total": 378139
+            },
+            "deaths": {
+                "new": "+98",
+                "1M_pop": "320",
+                "total": 12130
+            },
+            "tests": {
+                "1M_pop": "302949",
+                "total": 11475642
+            },
+            "day": "2020-12-01",
+            "time": "2020-12-01T15:30:10+00:00"
+        },
+        {
+            "continent": "North-America",
+            "country": "Canada",
+            "population": 37878885,
+            "cases": {
+                "new": "+7861",
+                "active": 66037,
+                "critical": 450,
+                "recovered": 299972,
+                "1M_pop": "9983",
+                "total": 378139
+            },
+            "deaths": {
+                "new": "+98",
+                "1M_pop": "320",
+                "total": 12130
+            },
+            "tests": {
+                "1M_pop": "301291",
+                "total": 11412572
+            },
+            "day": "2020-12-01",
+            "time": "2020-12-01T00:45:11+00:00"
+        }
+    ]
+}
